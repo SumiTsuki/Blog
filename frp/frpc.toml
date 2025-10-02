@@ -1,0 +1,48 @@
+# frpc.toml
+
+[common]
+serverAddr = "your_server_ip"
+serverPort = 7000
+auth.token = "your_secure_token_here"
+
+[[proxies]]
+name = "ssh"
+type = "tcp"
+localIP = "127.0.0.1"
+localPort = 22
+remotePort = 8022
+
+[[proxies]]
+name = "web"
+type = "tcp"
+localIP = "127.0.0.1"
+localPort = 8080
+remotePort = 8080
+
+[[proxies]]
+name = "mysql"
+type = "tcp"
+localIP = "127.0.0.1"
+localPort = 3306
+remotePort = 8306
+
+[[proxies]]
+name = "web_http"
+type = "http"
+localIP = "127.0.0.1"
+localPort = 8080
+customDomains = ["your-domain.com"]
+
+[[proxies]]
+name = "web_https"
+type = "https"
+localIP = "127.0.0.1"
+localPort = 8443
+customDomains = ["your-domain.com"]
+
+[[proxies]]
+name = "dns"
+type = "udp"
+localIP = "127.0.0.1"
+localPort = 53
+remotePort = 8053
