@@ -14,13 +14,6 @@ bindPort = 7000
 [auth]
 method = "token"
 token = "your_secure_token_here"
-allowPorts = [
-        { single = 8022 },
-        { single = 8053 },
-        { single = 8080 },
-        { single = 8306 },
-        { single = 8443 }
-]
 
 [webServer]
 addr = "0.0.0.0"
@@ -129,6 +122,8 @@ WantedBy = multi-user.target
 
 `cd frp`
 
+`sudo mkdir /etc/frp`
+
 `sudo cp frps /usr/local/bin/`
 
 `sudo cp frps.toml /etc/frp/`
@@ -144,6 +139,8 @@ WantedBy = multi-user.target
 #### frpc
 
 `cd frp`
+
+`sudo mkdir /etc/frp`
 
 `sudo cp frpc /usr/local/bin/`
 

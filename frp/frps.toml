@@ -5,13 +5,6 @@ bindPort = 7000
 [auth]
 method = "token"
 token = "your_secure_token_here"
-allowPorts = [
-	{ single = 8022 },
-	{ single = 8053 },
-	{ single = 8080 },
-	{ single = 8306 },
-	{ single = 8443 }
-]
 
 [webServer]
 addr = "0.0.0.0"
