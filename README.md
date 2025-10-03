@@ -53,7 +53,7 @@ WantedBy = multi-user.target
 [common]
 serverAddr = "your_server_ip"
 serverPort = 7000
-auth.token = "your_secure_token_here"
+token = "your_secure_token_here"
 
 [[proxies]]
 name = "ssh"
