@@ -9,22 +9,20 @@
 ```toml
 # frps.toml
 
-bindPort = 7000
+[common]
+bind_port = 7000
+token = "Your_Token"
 
-[auth]
-method = "token"
-token = "your_secure_token_here"
+dashboard_port = 7500
+dashboard_user = "admin"
+dashboard_pwd = "admin"
 
-[webServer]
-addr = "0.0.0.0"
-port = 7500
-user = "admin"
-password = "your_admin_password"
+vhost_http_port = 8080
+vhost_https_port = 8443
 
-[log]
-to = "./frps.log"
-level = "info"
-maxDays = 7
+log_file = "./frps.log"
+log_level = "info"
+log_max_days = 7
 ```
 
 #### frps.service
@@ -50,52 +48,54 @@ WantedBy = multi-user.target
 #### frpc.toml
 
 ```toml
+# frpc.toml
+
 [common]
-serverAddr = "your_server_ip"
-serverPort = 7000
-token = "your_secure_token_here"
+server_addr = "Your_Server_Address"
+server_port = 7000
+token = "Your_Token"
 
 [[proxies]]
 name = "ssh"
 type = "tcp"
-localIP = "127.0.0.1"
-localPort = 22
-remotePort = 8022
+local_ip = "127.0.0.1"
+local_port = 22
+remote_port = 8022
 
 [[proxies]]
 name = "web"
 type = "tcp"
-localIP = "127.0.0.1"
-localPort = 8080
-remotePort = 8080
+local_ip = "127.0.0.1"
+local_port = 8080
+remote_port = 8080
 
 [[proxies]]
 name = "mysql"
 type = "tcp"
-localIP = "127.0.0.1"
-localPort = 3306
-remotePort = 8306
+local_ip = "127.0.0.1"
+local_port = 3306
+remote_port = 8306
 
 [[proxies]]
 name = "web_http"
 type = "http"
-localIP = "127.0.0.1"
-localPort = 8080
-customDomains = ["your-domain.com"]
+local_ip = "127.0.0.1"
+local_port = 8080
+custom_domains = ["Your_Domain"]
 
 [[proxies]]
 name = "web_https"
 type = "https"
-localIP = "127.0.0.1"
-localPort = 8443
-customDomains = ["your-domain.com"]
+local_ip = "127.0.0.1"
+local_port = 8443
+custom_domains = ["Your_Domain"]
 
 [[proxies]]
 name = "dns"
 type = "udp"
-localIP = "127.0.0.1"
-localPort = 53
-remotePort = 8053
+local_ip = "127.0.0.1"
+local_port = 53
+remote_port = 8053
 ```
 
 #### frpc.service
